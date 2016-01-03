@@ -168,4 +168,8 @@ float getAlpha(float x){
     
 
 }
+
+-(void)willMoveToSuperview:(UIView *)newSuperview{
+    [self fire];
+}
 @end

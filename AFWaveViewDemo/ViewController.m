@@ -33,7 +33,7 @@
 //    waveView.minAlpha=0;
     
     
-    [waveView fire];
+
     [self.view addSubview:waveView];
 
 }
