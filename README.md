@@ -4,8 +4,11 @@
 ![Alt text](./AFWave.gif)
 
 使用方法：
+
 1.将 AFWaveView.h 和 AFWaveView.m 导入项目中
+
 2.将以下代码复制到应用程序中
+
 ```
 AFWaveView *waveView = [[AFWaveView alloc]initWithTouches:touches];
 [self.view addSubview:waveView];
