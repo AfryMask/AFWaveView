@@ -2,8 +2,8 @@
 //  AFWaveView.m
 //  AFWaveViewDemo
 //
-//  Created by Afry on 15/11/30.
-//  Copyright © 2015年 Afry. All rights reserved.
+//  Created by AfryMask on 15/11/30.
+//  Copyright © 2015年 AfryMask. All rights reserved.
 //
 
 #import "AFWaveView.h"
@@ -12,10 +12,9 @@
 @interface AFWaveView ()
 @property(nonatomic,weak)NSTimer *timer;//计时器
 @property(nonatomic,assign)CGFloat r;//圆的当前半径
-//@property(nonatomic,assign)NSInteger heartCount;//心形数量
 @end
 
-static NSInteger heartCount = 0;
+static NSInteger heartCount = 0;//心形数量
 @implementation AFWaveView
 
 
@@ -91,7 +90,7 @@ static NSInteger heartCount = 0;
 /**
  唯一初始化方法
  */
--(instancetype)initWithTouches:(NSSet *)touches{
+-(instancetype)initWithPoint:(CGPoint)point{
     if (self = [super init]) {
         // view背景颜色设定clear，防止阴影出现
         self.backgroundColor=[UIColor clearColor];
@@ -99,7 +98,7 @@ static NSInteger heartCount = 0;
         // 默认动画时间和半径
         self.duration = 1;
         self.maxR = 50;
-        self.waveCount = 5;
+        self.waveCount = 3;
         self.waveDelta = 10;
         self.maxAlpha = 1;
         self.minAlpha = 0;
@@ -108,9 +107,8 @@ static NSInteger heartCount = 0;
         self.maxHearts = 10;
         
         // 获取当前点击的位置
-        UITouch *t = touches.anyObject;
-        CGPoint p  = [t locationInView:self.superview];
-        self.center = p;
+        
+        self.center = point;
         
         
     }
@@ -169,6 +167,7 @@ float getAlpha(float x){
 
 }
 
+//添加到父控件时自动开始动画
 -(void)willMoveToSuperview:(UIView *)newSuperview{
     [self fire];
 }

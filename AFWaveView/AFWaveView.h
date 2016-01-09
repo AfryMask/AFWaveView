@@ -2,8 +2,8 @@
 //  AFWaveView.h
 //  AFWaveViewDemo
 //
-//  Created by Afry on 15/11/30.
-//  Copyright © 2015年 Afry. All rights reserved.
+//  Created by AfryMask on 15/11/30.
+//  Copyright © 2015年 AfryMask. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -20,6 +20,5 @@
 @property(nonatomic,strong)UIColor *mainColor;//主要颜色,默认红色
 @property(nonatomic,assign)NSInteger maxHearts;//心形的最大数量
 
--(instancetype)initWithTouches:(NSSet *)touches;
--(void)fire;
+-(instancetype)initWithPoint:(CGPoint)point;
 @end

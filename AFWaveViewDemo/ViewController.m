@@ -3,7 +3,7 @@
 //  AFWaveViewDemo
 //
 //  Created by Afry on 15/11/30.
-//  Copyright © 2015年 Afry. All rights reserved.
+//  Copyright © 2015年 AfryMask. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -23,7 +23,10 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    AFWaveView *waveView = [[AFWaveView alloc]initWithTouches:touches];
+    UITouch *t = touches.anyObject;
+    CGPoint p  = [t locationInView:self.view];
+    
+    AFWaveView *waveView = [[AFWaveView alloc]initWithPoint:p];
     
 //    waveView.maxR=50;
 //    waveView.duration=2;
