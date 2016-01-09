@@ -32,7 +32,3 @@ waveView.waveDelta=10; //the delta between wave to wave
 waveView.waveCount=3;  //the count of wave
                        //read more? Clone it :)
 ```
-
-(my English 太 poor 了, maybe I need help)
-
-QQ:1185878525
