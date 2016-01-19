@@ -31,11 +31,13 @@
 //    waveView.maxR=50;
 //    waveView.duration=2;
 //    waveView.waveDelta=10;
-//    waveView.waveCount=3;
+//    waveView.waveCount=1;
 //    waveView.maxAlpha=1;
 //    waveView.minAlpha=0;
-    
-    
+//    waveView.waveStyle = Circle;
+//    waveView.waveStyle = Heart;
+//    waveView.mainColor = [UIColor colorWithRed:0 green:0.7 blue:1 alpha:1];
+//    waveView.boundaryAlpha = 0.8;
 
     [self.view addSubview:waveView];
 

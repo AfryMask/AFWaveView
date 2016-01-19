@@ -18,8 +18,9 @@ static NSInteger heartCount = 0;//心形数量
 @implementation AFWaveView
 
 
-
-
++ (Class)layerClass {
+    return [CAShapeLayer class];
+}
 
 /**
  绘图
@@ -35,41 +36,49 @@ static NSInteger heartCount = 0;//心形数量
             continue;
         }
         
-        // 心形曲线的绘制
-        UIBezierPath* path = [[UIBezierPath alloc] init];
+        // 设定路径
+        UIBezierPath *path;
         
-        // 定位到初始点
-        CGFloat x = kMaxX;
-        CGFloat y = [self getHeartYWithX:x andKey:1];
-        
-        [path moveToPoint:CGPointMake((int)(-x*currentR+drawPoint.x),(int)(-y*currentR/2+drawPoint.y))];
-        
-        // 上半部
-        for (float i = -kMaxX; i < kMaxX; i += self.degree) {
+        if (_waveStyle == Heart) {
+            // 心形曲线的绘制
+            path = [[UIBezierPath alloc] init];
             
-            x = fabs(i);
-            y = [self getHeartYWithX:fabs(i) andKey:1];
+            // 定位到初始点
+            CGFloat x = kMaxX;
+            CGFloat y = [self getHeartYWithX:x andKey:1];
             
-            [path addLineToPoint:CGPointMake(i*currentR+drawPoint.x, -y*currentR/2+drawPoint.y)];
+            [path moveToPoint:CGPointMake((int)(-x*currentR+drawPoint.x),(int)(-y*currentR/2+drawPoint.y))];
+            
+            // 上半部
+            for (float i = -kMaxX; i < kMaxX; i += self.degree) {
+                
+                x = fabs(i);
+                y = [self getHeartYWithX:fabs(i) andKey:1];
+                
+                [path addLineToPoint:CGPointMake(i*currentR+drawPoint.x, -y*currentR/2+drawPoint.y)];
+            }
+
+            // 下半部
+            for (float i = kMaxX; i > -kMaxX; i -= self.degree) {
+                
+                x = fabs(i);
+                y = [self getHeartYWithX:fabs(i) andKey:2];
+                [path addLineToPoint:CGPointMake(i*currentR+drawPoint.x, -y*currentR/2+drawPoint.y)];
+            }
+            
+            [path closePath];
+            
+        }else {
+            path = [UIBezierPath bezierPathWithArcCenter:drawPoint radius:currentR startAngle:0 endAngle:M_PI*2 clockwise:NO];
         }
-        
-        // 下半部
-        for (float i = kMaxX; i > -kMaxX; i -= self.degree) {
-            
-            x = fabs(i);
-            y = [self getHeartYWithX:fabs(i) andKey:2];
-            [path addLineToPoint:CGPointMake(i*currentR+drawPoint.x, -y*currentR/2+drawPoint.y)];
-        }
-        
-        
-        [path closePath];
         
         // 颜色和透明度设置
         [self.mainColor set];
         CGFloat currentAlpha = [self getAlphaWithIndex:currentR/(self.maxR*1.0)];
-
+        
+        // 渲染
         [path fillWithBlendMode:kCGBlendModeNormal alpha:currentAlpha];
-
+        [path strokeWithBlendMode:kCGBlendModeNormal alpha:currentAlpha+self.boundaryAlpha];
     }
 
 }
@@ -96,16 +105,18 @@ static NSInteger heartCount = 0;//心形数量
         self.backgroundColor=[UIColor clearColor];
         
         // 默认动画时间和半径
+
         self.duration = 1;
         self.maxR = 50;
         self.waveCount = 3;
         self.waveDelta = 10;
+        self.boundaryAlpha = 0.2;
         self.maxAlpha = 1;
         self.minAlpha = 0;
         self.degree = 0.05;
         self.mainColor = [UIColor redColor];
         self.maxHearts = 10;
-        
+        self.waveStyle = Heart;
         // 获取当前点击的位置
         
         self.center = point;
