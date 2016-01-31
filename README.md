@@ -2,9 +2,11 @@
 
 Animation with heart shape witch can wave (use René Descartes line)
 
-心形波浪图像，笛卡尔曲线
+波浪效果,心形波浪图像,笛卡尔曲线
 
-![Alt text](./AFWave.gif)
+![Alt text](./AFWaveViewDemo1.gif)
+
+![Alt text](./AFWaveViewDemo2.gif)
 
 # To ues：
 
@@ -30,5 +32,6 @@ waveView.maxR=50;      //radius of the heart
 waveView.duration=2;   //the duration of the heart show
 waveView.waveDelta=10; //the delta between wave to wave
 waveView.waveCount=3;  //the count of wave
+waveView.waveStyle = Circle; //style of the wave
                        //read more? Clone it :)
 ```
