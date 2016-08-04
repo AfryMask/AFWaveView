@@ -44,29 +44,26 @@ static NSInteger heartCount = 0;//心形数量
             path = [[UIBezierPath alloc] init];
             
             // 定位到初始点
-            CGFloat x = kMaxX;
-            CGFloat y = [self getHeartYWithX:x andKey:1];
-            
-            [path moveToPoint:CGPointMake((int)(-x*currentR+drawPoint.x),(int)(-y*currentR/2+drawPoint.y))];
+            float i = -kMaxX;
+            float y = [self getHeartYWithX:fabs(i) andKey:2];
+            [path moveToPoint:CGPointMake(i*currentR+drawPoint.x, -y*currentR/2+drawPoint.y)];
             
             // 上半部
             for (float i = -kMaxX; i < kMaxX; i += self.degree) {
-                
-                x = fabs(i);
                 y = [self getHeartYWithX:fabs(i) andKey:1];
-                
                 [path addLineToPoint:CGPointMake(i*currentR+drawPoint.x, -y*currentR/2+drawPoint.y)];
             }
-
+            
             // 下半部
             for (float i = kMaxX; i > -kMaxX; i -= self.degree) {
-                
-                x = fabs(i);
                 y = [self getHeartYWithX:fabs(i) andKey:2];
                 [path addLineToPoint:CGPointMake(i*currentR+drawPoint.x, -y*currentR/2+drawPoint.y)];
             }
             
-            [path closePath];
+            // 封闭
+            i = -kMaxX;
+            y = [self getHeartYWithX:fabs(i) andKey:2];
+            [path addLineToPoint:CGPointMake(i*currentR+drawPoint.x, -y*currentR/2+drawPoint.y)];
             
         }else {
             path = [UIBezierPath bezierPathWithArcCenter:drawPoint radius:currentR startAngle:0 endAngle:M_PI*2 clockwise:NO];

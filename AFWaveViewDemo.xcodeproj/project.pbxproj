@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E84617851C0C68E50060AF1F /* AFWaveViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AFWaveViewDemo.app; path = "/Users/Afry/Desktop/MyWork/AFWaveView-Touch/build/Debug-iphoneos/AFWaveViewDemo.app"; sourceTree = "<absolute>"; };
+		3E3D22941D53926B007F710A /* AFWaveViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFWaveViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E84617891C0C68E50060AF1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E846178B1C0C68E50060AF1F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E846178C1C0C68E50060AF1F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -47,6 +47,7 @@
 			children = (
 				E84617AA1C0C73950060AF1F /* AFWaveView */,
 				E84617871C0C68E50060AF1F /* AFWaveViewDemo */,
+				3E3D22941D53926B007F710A /* AFWaveViewDemo.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,7 +101,7 @@
 			);
 			name = AFWaveViewDemo;
 			productName = AFWaveViewDemo;
-			productReference = E84617851C0C68E50060AF1F /* AFWaveViewDemo.app */;
+			productReference = 3E3D22941D53926B007F710A /* AFWaveViewDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -114,7 +115,8 @@
 				TargetAttributes = {
 					E84617841C0C68E50060AF1F = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = MG63G9T3GS;
+						DevelopmentTeam = F7JAV3CR6S;
+						DevelopmentTeamName = "Blink Academy Limited";
 					};
 				};
 			};
